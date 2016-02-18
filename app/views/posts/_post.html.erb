@@ -1,0 +1,8 @@
+<div class="post">
+  <p><%= post.message %></p>
+  <%= render "/likes/form", post: post %>
+  <span class="counter" id="post-counter-<%= post.id %>">
+    <%= post.likes.count %>
+  </span>
+  <%= link_to "ツ", post_likes_path(post), class: "like-button", data: { post_id: post.id } %>
+</div>
