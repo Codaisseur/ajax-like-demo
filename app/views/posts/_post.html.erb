@@ -1,6 +1,8 @@
 <div class="post">
   <p><%= post.message %></p>
-  <%= render "/likes/form", post: post %>
+  <noscript>
+    <%= render "/likes/form", post: post %>
+  </noscript>
   <span class="counter" id="post-counter-<%= post.id %>">
     <%= post.likes.count %>
   </span>
