@@ -13,6 +13,7 @@ class LikesController < ApplicationController
     else
       respond_to do |format|
         format.html { redirect_to @post, alert: "Awwwhh snap! No likes for the likes of you." }
+        format.json { render json: { errors: @like.errors }, status: :unprocessable_entity }
       end
     end
   end

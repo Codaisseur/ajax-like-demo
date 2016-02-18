@@ -6,6 +6,15 @@ function like(url, id) {
     .done(function( response ) {
       console.log(response.likes);
       $("#post-counter-" + id).html(response.likes);
+    })
+
+    .fail(function( xhr ) {
+      console.log(xhr.responseJSON);
+      var response = xhr.responseJSON;
+      var error_message = $("<span/>");
+      error_message.addClass("error");
+      error_message.html(response.errors.post[0]);
+      error_message.insertAfter($("#post-counter-" + id));
     });
 }
 
